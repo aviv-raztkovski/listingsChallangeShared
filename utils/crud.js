@@ -1,8 +1,10 @@
+const { forEach } = require('../DummyData');
 let entries = require('../DummyData');
 
 console.log(entries[1]);
 
 module.exports.createListing = function (details) {
+    if (!details) return {status: '404', message: 'Details Requierd to create a listing'}
     const lastIndex = entries[entries.length - 1];
     const newEntrie = {
         id: lastIndex + 1,
@@ -19,14 +21,35 @@ module.exports.createListing = function (details) {
     }
 
     entries.push(newEntrie);
+
+    return { status: 200, message: "Listing Created"}
 }
 
 module.exports.getListing = function (searchParams) {
+    /*
+    for (const item in entries){
+        const itemStr = item.toString();
+        const listingsToRet = [];
+        const args = searchParams.split(" ");
+        for (const arg of args) {
+            if (item.includes(arg)) {
+                if ()
+            }
+        }
 
+    } 
+    */
+   return { status: 200, message: "Listing Found", data: entries} 
 }
 
 module.exports.editListings = function (id, newDetails) {
+    const eID = entries.find(entrie => entrie.id == id);
+    if (!eID) return {status: 404, message: 'Listing Not Found'};
 
+    for (const property in newDetails) {
+        entries[eID][property] = newDetails[property];
+    }
+    return {status: 200, message: "Listing Edited" , data: entries[eID]};
 }
 
 module.exports.deleteListing = function (id) {
