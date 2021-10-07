@@ -1,3 +1,5 @@
+import './list.css';
+
 const ListItem = (props) => {
     return (
         <div className="list-item-container">
