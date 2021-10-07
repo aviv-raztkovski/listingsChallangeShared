@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './App.css';
+import ListComponenet from '../ListComponenet/ListComponenet';
+import FilterBox from '../ListComponenet/FilterBox';
 
 function App() {
   const [exampleRes, setExampleRes] = useState();
@@ -19,6 +21,8 @@ function App() {
       <header />
       <div className="container">
         <h1> {exampleRes} </h1>
+        <FilterBox></FilterBox>
+        <ListComponenet></ListComponenet>
       </div>
     </div>
   );
