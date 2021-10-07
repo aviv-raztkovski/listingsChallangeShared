@@ -1,8 +1,10 @@
 const FilterBox = (props) => {
     return (
-        <div>
-            Enter Filter Functionality here      
-        </div>
+        <form action="">
+        <label for="filter">filter:</label>
+        <input type="text" name="filter" className="filter" placeholder="Enter your filter here"></input>
+        <br></br>
+        </form>
     )
 }
 
